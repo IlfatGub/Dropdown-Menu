@@ -1,0 +1,154 @@
+
+
+*
+{
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+body
+{
+	min-height: 100vh;
+	background: linear-gradient(45deg, #4e65ff, #92effd);
+	
+}
+.menu
+{
+	position: fixed;
+	top: 20px;
+	right: 20px;
+	width: 120px;
+	height: 60px;
+	background: white;
+	box-shadow:  0 25px 35px rgba(0,0,0,0.1);
+	display: flex;
+	justify-content: space-between;
+	transition: height 0.5s, width 0.5s;
+	transition-delay:  0s, 0.5s;
+	overflow: hidden;
+
+	&.menu-active .menu__burger::before
+	{
+		transform: translateY(0px) rotate(45deg);
+		box-shadow: 0 0 #555;
+	}
+	&.menu-active .menu__burger::after
+	{
+		transform: translateY(0px) rotate(-45deg);
+	}
+	&.menu-active
+	{
+		width: 300px;
+		height: 400px;
+		transition: width 0.5s, height 0.5s;
+		transition-delay:  0s, 0.5s;
+	}
+
+	
+	&.menu-active .menu__avatar
+	{
+		width: calc(100% - 60px);
+		transition: 0.0s;
+	}
+
+	.menu__avatar{
+		position: relative;
+		display: flex;
+		align-items: center;
+		width: 60px;
+		height: 60px;
+		overflow: hidden;
+		transition: 0.5s;
+		transition-delay: 0.5s;
+		.menu__image{
+			position: relative;
+			min-width: 60px;
+			height: 60px;
+			background: #000;
+			border-radius: 50%;
+			border: 10px solid #fff;
+			overflow: hidden;
+			img{
+				top: 0;
+				left: 0;
+				width: 100%;
+				height: 100%;
+				object-fit: cover;
+			}
+		}
+
+		.menu__text
+		{
+			white-space: nowrap;
+			font-size: 1.1em;
+
+		}
+	}
+
+	.menu__burger
+	{
+		position: relative;
+		width: 60px;
+		height: 60px;
+		cursor: pointer;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+
+		&::before
+		{
+			content: '';
+			position: absolute;
+			width: 32px;
+			height: 2px;
+			background-color: #555;
+			transform: translateY(-10px);
+			box-shadow: 0 10px 0 0 #555;
+			transition: 0.5s;
+		}
+
+		&::after
+		{
+			content: '';
+			position: absolute;
+			width: 32px;
+			height: 2px;
+			background-color: #555;
+			transform: translateY(10px);
+			transition: 0.5s;
+		}
+
+	}
+
+	.menu__items
+	{
+		position: absolute;
+		width: 100%;
+		height: calc(100% - 60px);
+		margin-top: 60px;
+		padding: 20px;
+		border-top: 1px solid rgba(0,0,0,0.1);
+		li
+		{
+			list-style: none;
+			.menu__item
+			{
+				display: flex;
+				align-items: center;
+				gap: 10px;
+				margin: 20px 0;
+				text-decoration: none;
+				color: #555;
+				font-size: 1em;
+				.ion-icon
+				{
+					font-size: 1.5em;
+				}
+				&:hover{
+					color: rgb(88, 88, 192);
+				}
+			}
+		}
+	}
+
+}
